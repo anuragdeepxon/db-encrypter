@@ -26,8 +26,8 @@ class TestFactory extends Factory
         $this->encrypter = new Encrypter($fromKey, $cipher);
 
         return [
-            'title' => $this->encrypter->encryptString($this->faker->name),
-            'description' => $this->encrypter->encryptString($this->faker->paragraph),
+            'title' => $this->faker->name,
+            'description' => $this->faker->paragraph,
         ];
     }
 }

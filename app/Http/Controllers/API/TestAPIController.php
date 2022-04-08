@@ -107,8 +107,6 @@ class TestAPIController extends APIBaseController
     {
         $data = $request->all();
 
-        // dd($data);
-
         $validator = Validator::make($data, [
             'title' => 'nullable|string',
             'description' => 'nullable|string',

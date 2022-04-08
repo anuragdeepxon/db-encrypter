@@ -127,6 +127,9 @@ return [
 
 
     'db_key' => env('DB_KEY'),
+
+    'db_cipher' => env('DB_CIPHER'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

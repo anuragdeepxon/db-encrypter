@@ -15,7 +15,7 @@ class APIBaseController extends Controller
         #Encrypter
         $db_key  = config('app.db_key');
         $fromKey = base64_decode($db_key);
-        $cipher = "aes-256-gcm";
+        $cipher = config('app.db_cipher');
         $this->encrypter = new Encrypter($fromKey, $cipher);
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-
+use Illuminate\Encryption\Encrypter;
 
 
 /**
@@ -22,4 +22,13 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function __construct()
+    {
+        #Encrypter
+        $db_key  = config('app.db_key');
+        $fromKey = base64_decode($db_key);
+        $cipher = config('app.db_cipher');
+        $this->encrypter = new Encrypter($fromKey, $cipher);
+    }
 }
