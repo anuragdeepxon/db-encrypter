@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\TestAPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+// Routes for Test Model
+Route::prefix('test')->group(function () {
+    Route::get('/', [TestAPIController::class, 'index']);
+    Route::post('/create', [TestAPIController::class, 'store']);
 });

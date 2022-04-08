@@ -1,0 +1,103 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "YHHF APIs",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "/api/v2"
+        }
+    ],
+    "paths": {
+        "/test": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Get Test Data.",
+                "operationId": "9274eb8426cd9ff9d4ed926d6e1dde2b",
+                "responses": {
+                    "200": {
+                        "description": "Response.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "title": {
+                                            "description": "API title response.",
+                                            "type": "string"
+                                        },
+                                        "descriptione": {
+                                            "description": "API descriptione response.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/test/create": {
+            "post": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Create Test Data.",
+                "operationId": "2ea6959ad6bb753526a55ccc8b7b15f1",
+                "requestBody": {
+                    "description": "Enter Data",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "test title"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "test description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Response.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "status.",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "description": "null.",
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "description": "message.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

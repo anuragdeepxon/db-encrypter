@@ -125,6 +125,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+
+    'db_key' => env('DB_KEY'),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -176,6 +178,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        L5Swagger\L5SwaggerServiceProvider::class,
 
     ],
 
