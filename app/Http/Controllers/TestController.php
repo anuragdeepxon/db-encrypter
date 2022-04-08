@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Response;
 
 class TestController extends Controller
 {
+
     public function encrypt()
     {
         $data = Test::all()->toArray();
@@ -20,11 +21,18 @@ class TestController extends Controller
         foreach ($data as $one) {
             $individual = Test::where([['id', '=',  $one['id']]])->first();
 
-            $payload = $individual['title'];
-            $payload = json_decode(base64_decode($payload), true);
+            $title_payload = $individual['title'];
+            $title_payload = json_decode(base64_decode($title_payload), true);
 
-            if (!$this->validPayload($payload)) {
+            $description_payload = $individual['description'];
+            $description_payload = json_decode(base64_decode($description_payload), true);
+
+            if (!$this->validPayload($title_payload)) {
                 $individual['title'] = $this->encrypter->encryptString($one['title']);
+                $individual->save();
+            }
+
+            if (!$this->validPayload($description_payload)) {
                 $individual['description'] = $this->encrypter->encryptString($one['description']);
                 $individual->save();
             }
