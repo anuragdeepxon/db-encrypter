@@ -72,6 +72,10 @@ To run this project, you will need to add the following environment variables to
 
 `L5_SWAGGER_BASE_PATH=/api/v2`
 
+`DB_KEY=base64:abcdefghijklmnopqrstuvwxyz1234567890q`
+
+`DB_CIPHER=aes-256-gcm`
+
 
 ## API 
 #### Swagger Documentation
